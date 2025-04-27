@@ -2,11 +2,11 @@ import cv2
 from ultralytics import YOLO
 
 modelo = YOLO("yolov8m.pt")
-modelo.to("cuda")
+#modelo.to("cuda")
 clases = modelo.model.names
 clasesConteo = {"person":0, "bicycle":0, "dog":0}
 
-cap = cv2.VideoCapture("./combinado2.mp4")
+cap = cv2.VideoCapture("./videos/combinado2.mp4")
 cv2.namedWindow("Resultado", cv2.WINDOW_NORMAL)
 
 while cap.isOpened():
@@ -14,7 +14,7 @@ while cap.isOpened():
     if not ok:
         break
     
-    resultados = modelo.track(frame, persist=True, classes=[0,1,16], conf=0.1)
+    resultados = modelo.track(frame, persist=True, classes=[0,1,16], conf=0.9)
     
     cajas = resultados[0].boxes
     for caja in cajas:

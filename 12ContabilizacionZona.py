@@ -3,11 +3,11 @@ from ultralytics import YOLO
 import numpy as np
 
 modelo = YOLO("yolov8x.pt")
-modelo.to("cuda")
+# modelo.to("cuda")
 
 areaConteo = np.array([(1000,250), (1500,250), (1300,1000), (600,1000)])
 
-cap = cv2.VideoCapture("./personas.mp4")
+cap = cv2.VideoCapture("./videos/personas.mp4")
 cv2.namedWindow("Resultado", cv2.WINDOW_NORMAL)
 
 cuenta = 0
@@ -19,7 +19,7 @@ while cap.isOpened():
     #bytetrack.yaml
     #botsort.yaml
     
-    resultados = modelo.track(frame, persist=True, classes=0, conf=0.1, tracker="bytetrack.yaml")
+    resultados = modelo.track(frame, persist=True, classes=0, conf=0.9, tracker="bytetrack.yaml")
     
     cajas = resultados[0].boxes
     for caja in cajas:

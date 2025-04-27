@@ -27,7 +27,7 @@ while cap.isOpened():
     if not ok:
         break
 
-    tracks = modelo.track(frame, persist=True, tracker="bytetrack.yaml", conf=0.1,
+    tracks = modelo.track(frame, persist=True, tracker="bytetrack.yaml", conf=0.9,
                           classes=[2,7], verbose=False)
     contador.start_counting(frame, tracks)
     
