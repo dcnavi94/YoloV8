@@ -1,0 +1,38 @@
+# Ignorar archivos grandes de modelos
+*.pt
+*.h5
+*.onnx
+*.ckpt
+
+# Ignorar datos
+*.csv
+*.xlsx
+*.json
+*.xml
+
+# Ignorar carpetas de datasets, resultados, checkpoints
+data/
+datasets/
+outputs/
+checkpoints/
+logs/
+videos/
+imagenes/
+
+# Ignorar archivos de entrenamiento o cache
+*.log
+*.tmp
+*.out
+
+# Ignorar entornos virtuales
+venv/
+.env/
+__pycache__/
+*.pyc
+
+# Ignorar archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar notebooks de backup
+*.ipynb_checkpoints/
